@@ -11,7 +11,7 @@
 ## 一、遍历检索py
 遍历得到项目结构树，滤除非py文件的信息，得到tree.txt
 
-PS:检测到tree.txt文件后进入二三四流程的循环（每一次循环只操作一个py文件，按tree记录的顺序操作最新的py文件，在四流程完成后会生成或者更新complish_tree.txt，记录操作完成的py文件的原地址。随后进入下个循环，通过tree和complish_tree的差异得出最新py开始流程循环，直到差异中没有任何py文件或者手动停止）
+PS:检测到tree.txt文件后进入二三四流程的循环（每一次循环只操作一个py文件，按tree记录的顺序操作最新的py文件，在四流程完成后会生成或者更新complish_tree.txt，记录操作完成的py文件的原地址。随后进入下个循环，通过tree和complish_tree的差异得出最新py开始流程循环，直到差异中没有任何py文件或者手动停止）(根目录的py文件跳过2，4流程，只需进行3修改外部导入然后更新complish_tree文件)
 ## 二、复制重命名py(以translator/config/api.py为例)
 根据tree.txt文件
 
