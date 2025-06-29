@@ -5,24 +5,25 @@ PS：由于测试项目内部导入（包括显式导入隐式导入，相对导
 
 PS：作为检测手段，每个py不运行实际翻译api的程序，而是作为导入的载体，分别检测导入语句是否导入成功，和导入的值是否为true,若两者都成立则返回值true,否则输出false，该值可以在作为模块被导入其他py文件是否判断导入的值是否为true.（如果没有导入语句，报告没有导入语句即可。不需检测是否导入成功，也不需要返回值）
 
-PS:运行main.py后汇总所有py的报告，输出没有导入语句的文件和返回值为false的文件的位置
+PS:运行test.py后汇总所有py的报告，输出没有导入语句的文件和返回值为false的文件的位置
 
 ```tree
 test_project/
-├── main.py
-├── utils/
-│   ├── __init__.py
-│   ├── helper.py
-│   └── validation.py
-├── translator/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── api.py
-│   └── processors/
-│       ├── __init__.py
-│       └── text_processor.py
-└── models/
-    ├── __init__.py
-    ├── user.py
-    └── payment.py
+ my_project/
+   ├── test.py 
+   ├── main.py              # 主程序入口，使用绝对导入
+   ├── package_a/           # 包a
+   │   ├── __init__.py      # 显式导入模块中的部分功能（显式导入）
+   │   ├── module_a1.py     # 包含一个函数
+   │   └── module_a2.py     # 包含一个函数，并相对导入module_a1
+   ├── package_b/           # 包b（作为隐式命名空间包，无__init__.py，仅用于演示，但注意：没有__init__.py则不能使用相对导入）
+   │   └── module_b1.py     # 包含一个函数
+   └── package_c/           # 包c
+       ├── __init__.py      # 空文件，仅标记为包
+       ├── module_c1.py     # 包含一个函数，并绝对导入package_a.module_a1
+       └── subpackage_c/    # 子包
+           ├── __init__.py  # 空文件
+           └── module_c2.py # 包含一个函数，并相对导入父包中的module_c1
+ 注意：为了演示命名空间包（隐式导入），我们创建了package_b（没有__init__.py），但注意，没有__init__.py的包不支持相对导入，所以我们只做绝对导入。
+
 ```
