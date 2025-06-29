@@ -5,36 +5,20 @@ PS：作为检测手段，每个py不实际运行程序，而是检测是否外�
 
 PS:运行程序后输出所有返回false的文件位置
 
-test_project/
-
-├── main.py
-
-├── utils/
-
-│   ├── __init__.py
-
-│   ├── helper.py
-
-│   └── validation.py
-
-├── translator/
-
-│   ├── __init__.py
-
-│   ├── config.py
-
-│   ├── api.py
-
-│   └── processors/
-
-│       ├── __init__.py
-
-│       └── text_processor.py
-
-└── models/
-
-    ├── __init__.py
-    
-    ├── user.py
-    
-    └── payment.py
+* test_project/
+* ├── main.py
+* ├── utils/
+* │   ├── __init__.py
+* │   ├── helper.py
+* │   └── validation.py
+* ├── translator/
+* │   ├── __init__.py
+* │   ├── config.py
+* │   ├── api.py
+* │   └── processors/
+* │       ├── __init__.py
+* │       └── text_processor.py
+* └── models/
+*    ├── __init__.py    
+*    ├── user.py
+*    └── payment.py
